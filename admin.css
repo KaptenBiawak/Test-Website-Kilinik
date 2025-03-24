@@ -1,0 +1,37 @@
+/* Tambahkan gaya untuk tabel reservasi dengan spasi lebih baik */
+.reservation-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    table-layout: fixed;
+}
+
+.reservation-table th, .reservation-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+    white-space: nowrap; /* Mencegah teks menjadi terlalu rapat */
+}
+
+.reservation-table th {
+    background-color: #1e88e5;
+    color: white;
+    padding: 15px;
+}
+
+.reservation-table td {
+    padding: 12px;
+}
+
+.delete-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.delete-btn:hover {
+    background-color: darkred;
+}

@@ -163,3 +163,37 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Inisialisasi halaman
 renderDoctors();
+
+// Tambahkan event listener untuk tombol WhatsApp
+window.addEventListener('DOMContentLoaded', () => {
+    const whatsappButton = document.querySelector('.whatsapp-float a');
+    if (whatsappButton) {
+        whatsappButton.addEventListener('click', () => {
+            console.log('WhatsApp button clicked');
+        });
+    }
+});
+reservationForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const newReservation = {
+        name: document.getElementById('name').value,
+        phone: document.getElementById('phone').value,
+        email: document.getElementById('email').value,
+        date: document.getElementById('date').value,
+        time: document.getElementById('time').value
+    };
+
+    // Ambil data lama dari localStorage, lalu tambahkan data baru
+    let reservations = JSON.parse(localStorage.getItem('reservations')) || [];
+    reservations.push(newReservation);
+    localStorage.setItem('reservations', JSON.stringify(reservations));
+
+    // Tampilkan notifikasi sukses dan reset form
+    toast.className = "show";
+    setTimeout(() => {
+        toast.className = toast.className.replace("show", "");
+        closeModal();
+    }, 3000);
+});
+
